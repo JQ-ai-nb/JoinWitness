@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {readFileSync,existsSync} from 'node:fs';
 import {spawnSync} from 'node:child_process';
 import {resolve} from 'node:path';
 import {inspect,pairs,candidate_pairs,export_case} from '../dist/engine.js';
@@ -68,7 +68,7 @@ test('public case bridge rejects fractional, negative and nonfinite indices',()=
   const source=fixture('tenant-collision.json');
   for(const index of [0.5,-1,NaN,Infinity,128])assert.ok(JSON.parse(export_case(source,index)).error);
 });
-test('contestant identity checker emits valid UTF-8 even under a Windows codepage',()=>{
+test('contestant identity checker emits valid UTF-8 even under a Windows codepage',{skip:existsSync(resolve(root,'.git'))?false:'Requires Git checkout metadata'},()=>{
   const r=spawnSync('python',['scripts/check_identity.py'],{cwd:root,env:{...process.env,PYTHONIOENCODING:'cp1252'},encoding:'utf8'});
   assert.equal(r.status,0,r.stderr);
   const v=JSON.parse(r.stdout);assert.equal(v.author_and_committer,'JQ-ai-nb / 蒋琦');assert.equal(v.all_identical,true);

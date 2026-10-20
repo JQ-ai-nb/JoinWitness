@@ -2,6 +2,8 @@
 import os,pathlib,subprocess,json,sys
 sys.stdout.reconfigure(encoding='utf-8')
 root=pathlib.Path(__file__).resolve().parent.parent
+actual_root=pathlib.Path(subprocess.check_output(['git','rev-parse','--show-toplevel'],cwd=root).decode('utf-8').strip()).resolve()
+assert actual_root==root.resolve(),'Identity verification requires this project Git checkout, not an ancestor repository'
 rows=subprocess.check_output(['git','log','--format=%H%x00%an%x00%ae%x00%cn%x00%ce'],cwd=root).decode('utf-8').splitlines()
 assert rows,'no history'
 for row in rows:

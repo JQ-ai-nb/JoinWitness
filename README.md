@@ -59,6 +59,8 @@ node scripts/benchmark.mjs
 
 退出码 0：预检通过或成功导出；1：预检发现契约问题；2：无效输入、被拒绝的构造请求或 IO 错误。示例第一条 check **预期退出 1**，这是检测到问题。候选键只在显式 `--candidate` 时用于构造结果。
 
+Git 身份日志回归需要真实 Git 克隆；无 `.git` 的源码归档运行时会跳过这一项，其他 CLI/ESM 检查照常运行。
+
 可选独立 SQL 对照：`python tests/sqlite_oracle.py`（SQLite 3.39+）。可选浏览器检查：安装 Python Playwright/Chromium，保持预览服务运行，执行 `python tests/browser.py`。
 
 ## 在 MoonBit 中调用
