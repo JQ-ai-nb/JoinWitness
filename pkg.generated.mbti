@@ -1,0 +1,94 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "JQ-ai-nb/joinwitness"
+
+// Values
+pub fn encode_key(Array[Cell]) -> String
+
+pub fn plan(Array[KeyPair], kind? : String, nulls? : String, cardinality? : String, require_left? : Bool, require_right? : Bool, max_output? : Int32) -> Plan raise JoinError
+
+pub fn row_key(Table, String, Plan, Bool) -> Array[Cell]? raise JoinError
+
+pub fn validate_table(Table) -> Unit raise JoinError
+
+// Errors
+pub(all) suberror JoinError {
+  JoinError(String)
+} derive(Eq)
+pub fn JoinError::equal(Self, Self) -> Bool
+pub fn JoinError::not_equal(Self, Self) -> Bool
+
+// Types and methods
+pub(all) enum Cell {
+  Missing
+  Text(String)
+  Integer(Int32)
+  Flag(Bool)
+} derive(Eq)
+pub fn Cell::equal(Self, Self) -> Bool
+pub fn Cell::not_equal(Self, Self) -> Bool
+pub fn Cell::to_json(Self) -> Json
+pub impl ToJson for Cell
+
+pub(all) struct Group {
+  key : Array[Cell]
+  left_ids : Array[String]
+  right_ids : Array[String]
+  pairs : Int64
+} derive(Eq, ToJson)
+pub fn Group::equal(Self, Self) -> Bool
+pub fn Group::not_equal(Self, Self) -> Bool
+pub fn Group::to_json(Self) -> Json
+
+pub(all) struct KeyPair {
+  left : String
+  right : String
+} derive(Eq, ToJson)
+pub fn KeyPair::equal(Self, Self) -> Bool
+pub fn KeyPair::not_equal(Self, Self) -> Bool
+pub fn KeyPair::to_json(Self) -> Json
+
+pub(all) struct Plan {
+  kind : String
+  keys : Array[KeyPair]
+  nulls : String
+  cardinality : String
+  require_left : Bool
+  require_right : Bool
+  max_output : Int32
+} derive(Eq, ToJson)
+pub fn Plan::equal(Self, Self) -> Bool
+pub fn Plan::not_equal(Self, Self) -> Bool
+pub fn Plan::to_json(Self) -> Json
+
+pub(all) struct Row {
+  id : String
+  values : Array[Cell]
+} derive(Eq, ToJson)
+pub fn Row::equal(Self, Self) -> Bool
+pub fn Row::not_equal(Self, Self) -> Bool
+pub fn Row::to_json(Self) -> Json
+
+pub(all) struct Table {
+  name : String
+  columns : Array[String]
+  rows : Array[Row]
+} derive(Eq, ToJson)
+pub fn Table::equal(Self, Self) -> Bool
+pub fn Table::not_equal(Self, Self) -> Bool
+pub fn Table::to_json(Self) -> Json
+
+pub(all) struct Witness {
+  code : String
+  scope : String
+  key : Array[Cell]
+  left_ids : Array[String]
+  right_ids : Array[String]
+  explanation : String
+} derive(Eq, ToJson)
+pub fn Witness::equal(Self, Self) -> Bool
+pub fn Witness::not_equal(Self, Self) -> Bool
+pub fn Witness::to_json(Self) -> Json
+
+// Type aliases
+
+// Traits
