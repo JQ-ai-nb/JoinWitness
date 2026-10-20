@@ -4,6 +4,8 @@ package "JQ-ai-nb/joinwitness"
 // Values
 pub fn encode_key(Array[Cell]) -> String
 
+pub fn inventory(Table, Table, Plan) -> Inventory raise JoinError
+
 pub fn plan(Array[KeyPair], kind? : String, nulls? : String, cardinality? : String, require_left? : Bool, require_right? : Bool, max_output? : Int32) -> Plan raise JoinError
 
 pub fn row_key(Table, String, Plan, Bool) -> Array[Cell]? raise JoinError
@@ -38,6 +40,23 @@ pub(all) struct Group {
 pub fn Group::equal(Self, Self) -> Bool
 pub fn Group::not_equal(Self, Self) -> Bool
 pub fn Group::to_json(Self) -> Json
+
+pub(all) struct Inventory {
+  left_rows : Int32
+  right_rows : Int32
+  matched_left : Int32
+  matched_right : Int32
+  matched_pairs : Int64
+  output_rows : Int64
+  unmatched_left : Array[String]
+  unmatched_right : Array[String]
+  excluded_null_left : Array[String]
+  excluded_null_right : Array[String]
+  groups : Array[Group]
+} derive(Eq, ToJson)
+pub fn Inventory::equal(Self, Self) -> Bool
+pub fn Inventory::not_equal(Self, Self) -> Bool
+pub fn Inventory::to_json(Self) -> Json
 
 pub(all) struct KeyPair {
   left : String

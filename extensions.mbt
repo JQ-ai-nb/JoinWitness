@@ -42,3 +42,9 @@ pub extend Witness with ToJson::{to_json}
 
 ///|
 pub extend JoinError with Eq::{equal, not_equal}
+
+///|
+pub extend Inventory with Eq::{equal, not_equal}
+
+///|
+pub extend Inventory with ToJson::{to_json}
