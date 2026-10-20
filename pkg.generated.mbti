@@ -2,6 +2,10 @@
 package "JQ-ai-nb/joinwitness"
 
 // Values
+pub fn audit(Table, Table, Plan) -> Audit raise JoinError
+
+pub fn counterexample(Table, Table, Plan, Witness) -> (Table, Table) raise JoinError
+
 pub fn encode_key(Array[Cell]) -> String
 
 pub fn inventory(Table, Table, Plan) -> Inventory raise JoinError
@@ -12,6 +16,8 @@ pub fn row_key(Table, String, Plan, Bool) -> Array[Cell]? raise JoinError
 
 pub fn validate_table(Table) -> Unit raise JoinError
 
+pub fn verify_witness(Table, Table, Plan, Witness) -> Bool raise JoinError
+
 // Errors
 pub(all) suberror JoinError {
   JoinError(String)
@@ -20,6 +26,19 @@ pub fn JoinError::equal(Self, Self) -> Bool
 pub fn JoinError::not_equal(Self, Self) -> Bool
 
 // Types and methods
+pub(all) struct Audit {
+  schema_version : Int32
+  plan : Plan
+  inventory : Inventory
+  left_multiplicity_groups : Int32
+  right_multiplicity_groups : Int32
+  issue_count : Int32
+  safe : Bool
+  witnesses : Array[Witness]
+  witnesses_omitted : Int32
+} derive(ToJson)
+pub fn Audit::to_json(Self) -> Json
+
 pub(all) enum Cell {
   Missing
   Text(String)

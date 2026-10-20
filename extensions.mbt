@@ -48,3 +48,6 @@ pub extend Inventory with Eq::{equal, not_equal}
 
 ///|
 pub extend Inventory with ToJson::{to_json}
+
+///|
+pub extend Audit with ToJson::{to_json}
