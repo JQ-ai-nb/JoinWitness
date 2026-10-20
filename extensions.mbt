@@ -51,3 +51,6 @@ pub extend Inventory with ToJson::{to_json}
 
 ///|
 pub extend Audit with ToJson::{to_json}
+
+///|
+pub extend Comparison with ToJson::{to_json}

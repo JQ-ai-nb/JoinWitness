@@ -4,6 +4,8 @@ package "JQ-ai-nb/joinwitness"
 // Values
 pub fn audit(Table, Table, Plan) -> Audit raise JoinError
 
+pub fn compare(Table, Table, Plan, Plan) -> Comparison raise JoinError
+
 pub fn counterexample(Table, Table, Plan, Witness) -> (Table, Table) raise JoinError
 
 pub fn encode_key(Array[Cell]) -> String
@@ -49,6 +51,20 @@ pub fn Cell::equal(Self, Self) -> Bool
 pub fn Cell::not_equal(Self, Self) -> Bool
 pub fn Cell::to_json(Self) -> Json
 pub impl ToJson for Cell
+
+pub(all) struct Comparison {
+  schema_version : Int32
+  baseline : Audit
+  candidate : Audit
+  retained_pairs : Int64
+  lost_pairs : Int64
+  gained_pairs : Int64
+  newly_unmatched_left : Array[String]
+  newly_unmatched_right : Array[String]
+  recovered_left : Array[String]
+  recovered_right : Array[String]
+} derive(ToJson)
+pub fn Comparison::to_json(Self) -> Json
 
 pub(all) struct Group {
   key : Array[Cell]
