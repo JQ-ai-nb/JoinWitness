@@ -34,8 +34,8 @@ test "join multiplicity is the product of duplicate counts" {
 
 ///|
 test "outer joins extend unmatched rows individually, including nulls" {
-  let l = table("left", [Integer(1), Integer(2), Missing, Missing])
-  let r = table("right", [Integer(1), Integer(3), Missing])
+  let l = table("left", [Integer(1), Integer(2), NullCell, NullCell])
+  let r = table("right", [Integer(1), Integer(3), NullCell])
   for pair in [("inner", 1L), ("left", 4L), ("right", 3L), ("full", 6L)] {
     let (kind, count) = pair
     let result = inventory(l, r, basic(kind~))
@@ -47,8 +47,8 @@ test "outer joins extend unmatched rows individually, including nulls" {
 
 ///|
 test "null-safe comparison is explicit and component-wise" {
-  let l = table("left", [Missing, Missing, Integer(1), Text("1"), Flag(true)])
-  let r = table("right", [Missing, Integer(1)])
+  let l = table("left", [NullCell, NullCell, Integer(1), Text("1"), Flag(true)])
+  let r = table("right", [NullCell, Integer(1)])
   assert_eq(inventory(l, r, basic()).matched_pairs, 1L)
   assert_eq(inventory(l, r, basic(nulls="equal")).matched_pairs, 3L)
 }
@@ -80,7 +80,7 @@ test "different column names and composite keys preserve source identities" {
 
 ///|
 test "all small primitive tables agree with an independent nested-loop oracle" {
-  let domain = [Missing, Integer(0), Text("0"), Flag(false)]
+  let domain = [NullCell, Integer(0), Text("0"), Flag(false)]
   for lm in 0..<64 {
     for rm in 0..<64 {
       let lv = Array::makei(3, i => domain[(lm >> (2 * i)) & 3])
@@ -91,7 +91,7 @@ test "all small primitive tables agree with an independent nested-loop oracle" {
         let mr = Array::make(3, false)
         for i in 0..<3 {
           for j in 0..<3 {
-            if lv[i] == rv[j] && (nulls == "equal" || lv[i] != Missing) {
+            if lv[i] == rv[j] && (nulls == "equal" || lv[i] != NullCell) {
               pairs = pairs + 1
               ml[i] = true
               mr[j] = true

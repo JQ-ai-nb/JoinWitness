@@ -3,7 +3,7 @@ test "validated schema distinguishes real nulls from missing cells" {
   validate_table({
     name: "t",
     columns: ["id"],
-    rows: [{ id: "r", values: [Missing], }],
+    rows: [{ id: "r", values: [NullCell], }],
   })
   assert_true(
     try {

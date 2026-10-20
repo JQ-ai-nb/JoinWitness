@@ -1,7 +1,7 @@
 ///|
 /// Deliberately exact cells. No implicit string/number/bool coercion.
 pub(all) enum Cell {
-  Missing
+  NullCell
   Text(String)
   Integer(Int32)
   Flag(Bool)
@@ -72,7 +72,7 @@ fn[T] invalid(message : String) -> T raise JoinError {
 ///|
 pub impl ToJson for Cell with fn to_json(self) {
   match self {
-    Missing => Json::null()
+    NullCell => Json::null()
     Text(s) => Json::string(s)
     Integer(n) => Json::number(n.to_double())
     Flag(b) => Json::boolean(b)
@@ -219,7 +219,7 @@ fn key_of(row : Row, positions : Array[Int32], nulls : String) -> Array[Cell]? {
   let result = []
   for pos in positions {
     let cell = row.values[pos]
-    if nulls == "never" && cell == Missing {
+    if nulls == "never" && cell == NullCell {
       return None
     }
     result.push(cell)

@@ -54,3 +54,9 @@ pub extend Audit with ToJson::{to_json}
 
 ///|
 pub extend Comparison with ToJson::{to_json}
+
+///|
+pub extend Pair with Eq::{equal, not_equal}
+
+///|
+pub extend Pair with ToJson::{to_json}

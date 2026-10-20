@@ -66,7 +66,7 @@ test "comparison identity and symmetry hold across nullable composite data" {
     name: "l",
     columns: ["a", "b"],
     rows: [
-      { id: "a", values: [Missing, Integer(1)], },
+      { id: "a", values: [NullCell, Integer(1)], },
       { id: "b", values: [Integer(1), Integer(2)], },
     ],
   }
@@ -74,7 +74,7 @@ test "comparison identity and symmetry hold across nullable composite data" {
     name: "r",
     columns: ["a", "b"],
     rows: [
-      { id: "x", values: [Missing, Integer(1)], },
+      { id: "x", values: [NullCell, Integer(1)], },
       { id: "y", values: [Integer(1), Integer(3)], },
     ],
   }

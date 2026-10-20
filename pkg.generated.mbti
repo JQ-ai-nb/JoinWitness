@@ -12,6 +12,8 @@ pub fn encode_key(Array[Cell]) -> String
 
 pub fn inventory(Table, Table, Plan) -> Inventory raise JoinError
 
+pub fn materialize(Table, Table, Plan) -> Array[Pair] raise JoinError
+
 pub fn plan(Array[KeyPair], kind? : String, nulls? : String, cardinality? : String, require_left? : Bool, require_right? : Bool, max_output? : Int32) -> Plan raise JoinError
 
 pub fn row_key(Table, String, Plan, Bool) -> Array[Cell]? raise JoinError
@@ -42,7 +44,7 @@ pub(all) struct Audit {
 pub fn Audit::to_json(Self) -> Json
 
 pub(all) enum Cell {
-  Missing
+  NullCell
   Text(String)
   Integer(Int32)
   Flag(Bool)
@@ -100,6 +102,14 @@ pub(all) struct KeyPair {
 pub fn KeyPair::equal(Self, Self) -> Bool
 pub fn KeyPair::not_equal(Self, Self) -> Bool
 pub fn KeyPair::to_json(Self) -> Json
+
+pub(all) struct Pair {
+  left_id : String?
+  right_id : String?
+} derive(Eq, ToJson)
+pub fn Pair::equal(Self, Self) -> Bool
+pub fn Pair::not_equal(Self, Self) -> Bool
+pub fn Pair::to_json(Self) -> Json
 
 pub(all) struct Plan {
   kind : String
