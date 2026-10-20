@@ -1,5 +1,6 @@
 """Prevent accidental reuse of another contestant's author/committer identity."""
-import os,pathlib,subprocess,json
+import os,pathlib,subprocess,json,sys
+sys.stdout.reconfigure(encoding='utf-8')
 root=pathlib.Path(__file__).resolve().parent.parent
 rows=subprocess.check_output(['git','log','--format=%H%x00%an%x00%ae%x00%cn%x00%ce'],cwd=root).decode('utf-8').splitlines()
 assert rows,'no history'
