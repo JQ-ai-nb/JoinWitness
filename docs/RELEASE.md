@@ -12,8 +12,10 @@ GitHub 登录、仓库所有者、模块命名空间均核对为 JQ-ai-nb；提�
 
 包已能从源码正常编译、运行和打包。`docs/ACCEPTANCE.md` 列出证据与边界。
 
-**Mooncakes 尚未发布。** 本项目使用隔离 Moon home，等待 JQ-ai-nb 本人的 GitHub 授权登录。必须在 `moon whoami` 核实该身份后，才发布 `JQ-ai-nb/joinwitness@0.1.0`，并在新的消费模块中从 registry 实际下载、编译、运行；这些待办不会写成已经完成。
+**Mooncakes 已实际发布并完成独立安装验证。** 2026-10-20，在项目隔离 Moon home 中由 `moon whoami` 核实 `Logged in as JQ-ai-nb`，随后 `moon publish` 返回 `Server status: 200 OK`。registry 记录的创建时间为 `2026-10-20T02:38:47.358573+00:00`，模块为 `JQ-ai-nb/joinwitness@0.1.0`，未撤回。
 
-命名空间已写入源码，GitHub 源码和预编译演示可独立交付；它们不依赖先完成 registry 发布。授权补齐后应更新本文件、README 和验收自检中的发布状态，再记录服务器成功响应及独立消费结果。
+在另一个全新目录、空 Moon home、无登录凭据和无旧依赖缓存的消费项目中，`moon add JQ-ai-nb/joinwitness@0.1.0` 实际下载服务器归档；`moon check --deny-warn` 与 wasm-gc、JavaScript 两次示例运行均通过。反例复核为 true，安全构造产生 2 对。归档 SHA256 与 registry index 一致；详见 [REGISTRY.md](REGISTRY.md)。
+
+registry 0.1.0 来源是 `ebfc5ca07f8f0e96d5da30703df1b3ac6e9cd638`。该不可变快照的文档保留发布前状态；本次提交只更新发布证据和使用说明，业务源码未变。GitHub Release 演示归档包含本次更新后的文档，并在 BUILD_INFO.json 单独记录演示源码提交和 registry 源码提交。
 
 官方报名、本人独立撰写的申报书、诚信确认和最终验收均不由这个技术记录替代。

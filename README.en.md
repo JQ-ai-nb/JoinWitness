@@ -8,6 +8,8 @@ A missing tenant key turns four orders into seven joined rows. A three-row excer
 
 The library supports inner/left/right/full joins, composite key mappings, exact typed primitives, ordinary versus null-safe equality, matched-group cardinality contracts, independent coverage contracts, exact output budgets, independently verifiable evidence, guarded pair materialization and retained/lost/gained pair analysis without enumerating large products.
 
+Published on Mooncakes as `JQ-ai-nb/joinwitness@0.1.0`. Install with `moon add JQ-ai-nb/joinwitness@0.1.0` and import `"JQ-ai-nb/joinwitness" @join`. A new consumer with an empty registry cache and no credentials downloaded the package and ran the typed example on wasm-gc and JavaScript. See the [registry verification record](docs/REGISTRY.md).
+
 Build from source with MoonBit compiler 0.10.16+ and Node 22+:
 
 ```sh

@@ -65,7 +65,13 @@ Git 身份日志回归需要真实 Git 克隆；无 `.git` 的源码归档运行
 
 ## 在 MoonBit 中调用
 
-模块命名空间为 `JQ-ai-nb/joinwitness`。Mooncakes 发布状态见 [RELEASE.md](docs/RELEASE.md)；确认发布前请使用源码。
+`JQ-ai-nb/joinwitness@0.1.0` 已发布至 Mooncakes，并在无登录凭据、无旧包缓存的全新消费项目中实际下载、编译，分别运行 wasm-gc 与 JavaScript 示例。安装：
+
+```sh
+moon add JQ-ai-nb/joinwitness@0.1.0
+```
+
+导入包 `"JQ-ai-nb/joinwitness" @join`。完整命令、输出与归档校验见 [registry 验证记录](docs/REGISTRY.md)，发布状态见 [RELEASE.md](docs/RELEASE.md)。
 
 库接口提供 `plan`、`inventory`、`audit`、`compare`、`verify_witness`、`counterexample`、`materialize`；JSON 文本入口包括 `inspect_json`、`materialize_json`、`export_case_json`。公开签名见 [pkg.generated.mbti](pkg.generated.mbti)，[可执行 API 文档](API.mbt.md) 随测试验证。
 
