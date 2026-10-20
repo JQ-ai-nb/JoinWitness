@@ -29,8 +29,14 @@ pub fn candidate_pairs(source : String) -> String {
 }
 
 ///|
-pub fn export_case(source : String, index : Int32) -> String {
-  @join.export_case_json(source, index) catch {
+pub fn export_case(source : String, index : Double) -> String {
+  if index != index ||
+    index < 0 ||
+    index > 127 ||
+    index != index.to_int().to_double() {
+    return error_json("witness index must be an integer in 0..127")
+  }
+  @join.export_case_json(source, index.to_int()) catch {
     @join.JoinError(message) => error_json(message)
   }
 }

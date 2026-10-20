@@ -64,3 +64,7 @@ test('Unicode and markup remain literal row provenance',()=>{
   const v=JSON.parse(fixture('key-swap.json'));v.left.rows[0].id='<img src=x onerror=alert(1)> 🔧';
   const r=JSON.parse(inspect(JSON.stringify(v)));assert.ok(r.audit.inventory.groups.some(g=>g.left_ids.includes(v.left.rows[0].id)));
 });
+test('public case bridge rejects fractional, negative and nonfinite indices',()=>{
+  const source=fixture('tenant-collision.json');
+  for(const index of [0.5,-1,NaN,Infinity,128])assert.ok(JSON.parse(export_case(source,index)).error);
+});

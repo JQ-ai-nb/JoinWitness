@@ -4,7 +4,7 @@ package "JQ-ai-nb/joinwitness/api"
 // Values
 pub fn candidate_pairs(String) -> String
 
-pub fn export_case(String, Int32) -> String
+pub fn export_case(String, Double) -> String
 
 pub fn inspect(String) -> String
 
