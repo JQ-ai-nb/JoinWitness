@@ -9,10 +9,10 @@
 | 项目与命名空间 | 有效 MoonBit 工程 JQ-ai-nb/joinwitness，根目录 MIT，独立业务核心 |
 | 本机编译 | `moon check --target all --deny-warn` 通过 |
 | 本机测试 | wasm、wasm-gc、js；35 项 MoonBit 测试，含可执行 API 文档 |
-| CLI/ESM | 11 项真实集成测试通过；涵盖退出码、原始 JSON、候选结果、导出复核、非法索引 |
+| CLI/ESM | 12 项真实集成测试通过；涵盖退出码、原始 JSON、候选结果、导出复核、非法索引 |
 | 独立 SQL 对照 | SQLite 3.50.4，320 组完整来源行对集合与 MoonBit 完全一致，含四种 JOIN／两种 NULL 模式；SQLite 无独立 Boolean 类型，因此 Boolean 由独立 MoonBit oracle 覆盖 |
-| 浏览器 | 真实 Chromium 验证候选切换、三行下载、来源定位、覆盖率、集合差分、注入文本和 390px 布局 |
-| Native／多系统 | 远程 CI 配置 Linux/macOS/Windows × wasm/wasm-gc/js/native；最终运行结果见 RELEASE.md 与 Actions，未将本机缺少 MSVC 当作 native 已通过 |
+| 浏览器 | 本地与真实公开 Pages 的 Chromium 验证候选切换、三行下载、来源定位、覆盖率、集合差分、注入文本和 390px 布局 |
+| Native／多系统 | [远程 CI 已通过](https://github.com/JQ-ai-nb/JoinWitness/actions/runs/39354229909)：Linux/macOS/Windows × wasm/wasm-gc/js/native；Windows native 使用 MSVC；未将本机缺少 SDK 当作本地 native 成功 |
 | 格式与接口 | `moon fmt --check`、`moon info` 与已提交 mbti 核对 |
 | 可运行入口 | `moon run cmd/demo`、Node CLI、三个交互式完整场景 |
 | 包清洁 | 实际 `moon package` 归档检查通过，无 work、凭据、构建缓存和私人交付目录 |

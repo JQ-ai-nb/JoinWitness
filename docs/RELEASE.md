@@ -6,7 +6,11 @@
 
 GitHub 登录、仓库所有者、模块命名空间均核对为 JQ-ai-nb；提交作者和提交者均为蒋琦及该账户的专属 GitHub noreply 邮箱。完整历史身份检查在本地和 CI 运行，不只依赖全局 Git 设置。
 
-本机已验证 35 项 MoonBit 测试、11 项 Node 集成、320 组 SQLite 完整行对对照及真实浏览器。包已能从源码正常编译、运行和打包。`docs/ACCEPTANCE.md` 列出证据与边界。
+[已通过的三平台四目标 CI](https://github.com/JQ-ai-nb/JoinWitness/actions/runs/39354229909) 对应源码提交 `3aef2c6669182ee37ac58ca5b0f73b7f95d78740`，包括 check/test/build、35 项 MoonBit 测试、12 项 Node 集成、320 组 SQLite 完整行对对照、完整历史身份检查、格式／接口／打包及 Linux Chromium 检查。Windows 的中文日志编码问题已经修复，并有受限代码页下的回归测试。
+
+[Pages 部署](https://github.com/JQ-ai-nb/JoinWitness/actions/runs/39354230067) 成功，真实公开页面的完整 Chromium 功能检查通过。当前网络中有 GitHub Pages 节点访问波动；公开检查使用正常 TLS 并指定可用的 GitHub Pages 节点 185.199.108.153，未关闭证书验证。遇到访问延迟可先使用归档的本地演示入口。
+
+包已能从源码正常编译、运行和打包。`docs/ACCEPTANCE.md` 列出证据与边界。
 
 **Mooncakes 尚未发布。** 本项目使用隔离 Moon home，等待 JQ-ai-nb 本人的 GitHub 授权登录。必须在 `moon whoami` 核实该身份后，才发布 `JQ-ai-nb/joinwitness@0.1.0`，并在新的消费模块中从 registry 实际下载、编译、运行；这些待办不会写成已经完成。
 

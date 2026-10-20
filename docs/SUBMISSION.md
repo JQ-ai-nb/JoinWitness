@@ -1,6 +1,6 @@
 # 十月新项目申报准备
 
-参赛人：蒋琦；GitHub ID：`JQ-ai-nb`；项目：JoinWitness。独立的新业务实现，与该账户之前的 orbitcron、robopolicy 不同。若本人希望参与季度评选，选“新项目申报－参与季度评选”；往届参与情况、是否组队须按本人真实情况填写，不能套用张博文或李明坤的资料。
+参赛人：蒋琦；GitHub ID：`JQ-ai-nb`；项目：JoinWitness。独立的新业务实现，与该账户之前的 orbitcron、robopolicy 不同。若本人希望参与季度评选，选“新项目申报－参与季度评选”；往届参与情况、是否组队须按本人真实情况填写，全部资料以蒋琦本人实际情况填写。
 
 官方来源：[官网](https://moonbitlang.github.io/Hackathon2026/)、[十月申报表](https://bxup9uklfcb.feishu.cn/share/base/form/shrcnWUMlgpbwHaXgzV7HmNhNhg)。本期报名与验收截止 2026-10-31，最多申报 3 次，具体以通过审核前最后一次有效提交或修改及官方通知为准。
 

@@ -69,7 +69,7 @@ node scripts/benchmark.mjs
 
 ## 质量、规模与边界
 
-35 项 MoonBit 测试覆盖独立双重循环 oracle、组合键、NULL、基数、反例删除最小性、伪造证据、覆盖率、候选行对交集与资源限制。11 项 Node 集成测试验证真实 CLI/ESM；真实 SQLite 对照 320 组完整行对集合；Chromium 检查候选切换、反例下载、来源定位、注入文本和手机布局。CI 在 Linux/macOS/Windows 检查 wasm、wasm-gc、js、native。
+35 项 MoonBit 测试覆盖独立双重循环 oracle、组合键、NULL、基数、反例删除最小性、伪造证据、覆盖率、候选行对交集与资源限制。12 项 Node 集成测试验证真实 CLI/ESM；真实 SQLite 对照 320 组完整行对集合；Chromium 检查候选切换、反例下载、来源定位、注入文本和手机布局。CI 在 Linux/macOS/Windows 检查 wasm、wasm-gc、js、native。
 
 Windows / i7-14650HX / Node 24 合成基准：两表各 10000 行的单键关联，精确预检 **1 亿**匹配对但不构造它们，中位约 **30.76ms**；两表各 5000 行的复合键比较中位约 **42.56ms**。包含解析、证据、比较和完整 JSON 输出，见 [基准范围](docs/BENCHMARK.md)。不将合成样例外推为生产吞吐承诺。
 
