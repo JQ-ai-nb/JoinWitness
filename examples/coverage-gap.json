@@ -1,0 +1,14 @@
+{
+  "schema_version":1,
+  "left":{"name":"telemetry","columns":["device","payload"],"rows":[
+    {"id":"event-1","values":[12,"online"]},
+    {"id":"event-2","values":["12","text identifier"]},
+    {"id":"event-3","values":[null,"not assigned"]},
+    {"id":"event-4","values":[99,"retired device"]}
+  ]},
+  "right":{"name":"device_registry","columns":["device","owner"],"rows":[
+    {"id":"device-12","values":[12,"factory-A"]},
+    {"id":"unknown","values":[null,"unassigned"]}
+  ]},
+  "plan":{"kind":"inner","keys":[{"left":"device","right":"device"}],"nulls":"never","cardinality":"many_to_one","require_left":true,"max_output":100}
+}

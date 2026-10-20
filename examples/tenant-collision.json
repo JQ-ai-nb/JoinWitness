@@ -1,0 +1,16 @@
+{
+  "schema_version":1,
+  "left":{"name":"orders","columns":["customer","tenant","amount"],"rows":[
+    {"id":"order-A1","values":[7,"A",120]},
+    {"id":"order-A2","values":[7,"A",80]},
+    {"id":"order-B1","values":[7,"B",200]},
+    {"id":"order-C1","values":[8,"C",50]}
+  ]},
+  "right":{"name":"customers","columns":["customer","tenant","region"],"rows":[
+    {"id":"customer-A","values":[7,"A","east"]},
+    {"id":"customer-B","values":[7,"B","west"]},
+    {"id":"customer-C","values":[8,"C","north"]}
+  ]},
+  "plan":{"kind":"left","keys":[{"left":"customer","right":"customer"}],"cardinality":"many_to_one","require_left":true,"max_output":100},
+  "candidate":{"kind":"left","keys":[{"left":"customer","right":"customer"},{"left":"tenant","right":"tenant"}],"cardinality":"many_to_one","require_left":true,"max_output":100}
+}

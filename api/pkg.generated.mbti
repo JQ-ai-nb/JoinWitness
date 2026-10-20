@@ -1,0 +1,19 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "JQ-ai-nb/joinwitness/api"
+
+// Values
+pub fn candidate_pairs(String) -> String
+
+pub fn export_case(String, Int32) -> String
+
+pub fn inspect(String) -> String
+
+pub fn pairs(String) -> String
+
+// Errors
+
+// Types and methods
+
+// Type aliases
+
+// Traits

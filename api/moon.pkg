@@ -1,0 +1,12 @@
+import {
+  "JQ-ai-nb/joinwitness" @join,
+}
+
+options(
+  link: {
+    "js": {
+      "exports": [ "inspect", "pairs", "candidate_pairs", "export_case" ],
+      "format": "esm",
+    },
+  },
+)

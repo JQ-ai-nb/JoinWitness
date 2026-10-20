@@ -1,0 +1,11 @@
+{
+  "schema_version":1,
+  "left":{"name":"migration_source","columns":["old_key","new_key"],"rows":[
+    {"id":"source-1","values":[1,"B"]},{"id":"source-2","values":[2,"A"]}
+  ]},
+  "right":{"name":"migration_target","columns":["old_key","new_key"],"rows":[
+    {"id":"target-1","values":[1,"A"]},{"id":"target-2","values":[2,"B"]}
+  ]},
+  "plan":{"kind":"inner","keys":[{"left":"old_key","right":"old_key"}],"cardinality":"one_to_one","require_left":true,"require_right":true},
+  "candidate":{"kind":"inner","keys":[{"left":"new_key","right":"new_key"}],"cardinality":"one_to_one","require_left":true,"require_right":true}
+}
